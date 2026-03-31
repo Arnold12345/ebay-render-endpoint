@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: ebay-deletion-endpoint
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: VERIFICATION_TOKEN
+        value: mein_token_1234567890_1234567890
+      - key: ENDPOINT
+        value: https://ebay-deletion-endpoint.onrender.com/ebay-notify
